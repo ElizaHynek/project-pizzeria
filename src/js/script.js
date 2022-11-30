@@ -196,6 +196,9 @@
         }
       }
       
+      // multiply price by amount
+      price *= thisProduct.amountWidget.value;
+      
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
       console.log('Count price:', price);
@@ -205,7 +208,9 @@
       const thisProduct = this;
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
-      
+      thisProduct.amountWidgetElem.addEventListener('updated', function(){
+        thisProduct.processOrder();
+      });
     }
 
   }
@@ -216,10 +221,10 @@
       const thisWidget = this;
 
       console.log('AmountWidget:',thisWidget);
-      console.log('constructor arguments:', element);
+      //console.log('constructor arguments:', element);
 
       thisWidget.getElements(element);
-      thisWidget.setValue(thisWidget.input.value);
+      thisWidget.setValue(settings.amountWidget.defaultValue);
       thisWidget.initActions();
     }
 
@@ -234,16 +239,26 @@
 
     setValue(value){
       const thisWidget = this;
-
       const newValue = parseInt(value);
 
       if (thisWidget.value !== newValue && !isNaN(newValue)) {
-        thisWidget.value = newValue;
-        console.log('NewValue:', newValue);
+        if (newValue <= settings.amountWidget.defaultMax + 1) {
+          if (newValue >= settings.amountWidget.defaultMin - 1) {
+            thisWidget.value = newValue;
+            console.log('NewValue:', newValue);
+          }
+        }
       } 
 
-      thisWidget.value = newValue;
       thisWidget.input.value = thisWidget.value;
+      thisWidget.announce();
+    }
+
+    announce(){
+      const thisWidget = this;
+
+      const event = new Event('updated');
+      thisWidget.element.dispatchEvent(event);
     }
 
     initActions(){

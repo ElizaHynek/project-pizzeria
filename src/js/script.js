@@ -234,7 +234,7 @@
      
       };
 
-      return (productSummary);
+      return productSummary;
     }
 
     prepareCartProductParams(){
@@ -396,6 +396,7 @@
 
       const deliveryFee = settings.cart.defaultDeliveryFee;
       thisCart.totalNumber = 0;
+      thisCart.deliveryFee = deliveryFee;
       thisCart.subtotalPrice = 0;
 
       for (let product of thisCart.products){
@@ -442,7 +443,7 @@
         totalPrice: thisCart.totalPrice,
         subtotalPrice: thisCart.subtotalPrice,
         totalNumber: thisCart.totalNumber,
-        deliveryFee: thisCart.dom.deliveryFee,
+        deliveryFee: thisCart.deliveryFee,
         products: [],
       };
 

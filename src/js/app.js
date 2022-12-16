@@ -92,7 +92,6 @@ const app = {
         return rawResponse.json();
       })
       .then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
           
         // save response as this.App.data.products
         thisApp.data.products = parsedResponse;
@@ -100,8 +99,6 @@ const app = {
         //execute initMenu method
         thisApp.initMenu();
       });
-
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
 
   initCart: function(){

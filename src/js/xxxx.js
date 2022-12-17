@@ -168,7 +168,6 @@ class Booking {
     thisBooking.dom.phone = element.querySelector(select.booking.phone);
     thisBooking.dom.address = element.querySelector(select.booking.address);
     thisBooking.dom.submit = element.querySelector(select.booking.submit);
-    thisBooking.dom.starters = element.querySelectorAll(select.booking.starters);
   }
 
   initTables(){
@@ -220,11 +219,6 @@ class Booking {
         }
       }
     });
-
-    thisBooking.dom.submit.addEventListener('click', function(event){
-      event.preventDefault();
-      thisBooking.sendBooking();
-    });
   }
 
   sendBooking(){
@@ -235,28 +229,19 @@ class Booking {
     const payload = {
       date: thisBooking.date,
       hour: thisBooking.hour,
-      table: thisBooking.table,
-      duration: thisBooking.hoursAmount.correctValue,
-      ppl: thisBooking.peopleAmount.correctValue,
+      table: thisBooking.tableId,
+      duration: thisBooking.hoursAmount,
+      ppl: thisBooking.peopleAmount,
       starters: [],
       phone: thisBooking.dom.phone.value,
       adress: thisBooking.dom.address.value,
     };
 
-    for(let starter of thisBooking.dom.starters) {
-      if(starter.checked){
-        payload.starters.push(starter.value);
-      }
-    }
+    console.log('payload:', payload);
 
-    /* if (thisBooking.dom.checkboxes[1].checked) {
-      payload.starters.push(
-        thisBooking.dom.checkboxes[0].value,
-        thisBooking.dom.checkboxes[1].value
-      );
-    } else if (thisBooking.dom.checkboxes[0].checked) {
-      payload.starters.push(thisBooking.dom.checkboxes[0].value);
-    } */
+    for(let prod of thisBooking.products) {
+      payload.products.push(prod.getData());
+    }
 
     const options = {
       method: 'POST',
@@ -273,9 +258,20 @@ class Booking {
         console.log('parsedResponse: ', parsedResponse);
       });
 
-    
+    thisBooking.dom.submit.addEventListener('click', function(event){
+      event.preventDefault();
+      thisBooking.sendBooking();
+    });
   }
 
+  /* initActions(){
+    const thisBooking = this;
+
+    thisBooking.dom.submit.addEventListener('click', function(event){
+      event.preventDefault();
+      thisBooking.sendBooking();
+    });
+  } */
 }
 
 export default Booking;

@@ -202,8 +202,19 @@ class Booking {
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
 
-    thisBooking.dom.wrapper.addEventListener('updated', function(){
+    thisBooking.dom.wrapper.addEventListener('updated', function(event){
       thisBooking.updateDOM();
+      if (
+        event.target == thisBooking.dom.hourPicker ||
+        event.target == thisBooking.dom.datePicker ||
+        event.target == thisBooking.dom.peopleAmount ||
+        event.target == thisBooking.dom.hoursAmount
+      ){
+        thisBooking.selectedTable = {};
+        for (let table of thisBooking.dom.tables){
+          table.classList.remove('selected');
+        }
+      }
     });
   }
 

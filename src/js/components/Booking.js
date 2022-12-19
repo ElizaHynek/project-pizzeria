@@ -143,7 +143,7 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    
+    console.log('thisBooking.booked', thisBooking.booked);
   }
 
   render(element){
@@ -253,6 +253,7 @@ class Booking {
 
     //thisBooking.tableId = this.element.getAttribute(settings.booking.tableIdAttribute);
 
+    
     const payload = {
       date: thisBooking.date,
       hour: utils.numberToHour(thisBooking.hour),

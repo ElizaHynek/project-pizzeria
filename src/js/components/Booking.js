@@ -201,6 +201,8 @@ class Booking {
 
   initWidgets(){
     const thisBooking = this;
+        
+    //const starters = [];
 
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
@@ -231,19 +233,24 @@ class Booking {
       thisBooking.initTables();
     }); */
 
+    const starters = [];
+
     thisBooking.dom.starters.addEventListener('click', function(event){
+      
       const starter = event.target;
-      if (thisBooking.tagName == 'INPUT' && thisBooking.type == 'checkbox' && thisBooking.name == 'starter') {
-        console.log('filter.value', starter.value);
+      const value = event.target.value;
+      if (starter.tagName == 'INPUT' && starter.type == 'checkbox' && starter.name == 'starter') {
+        console.log('filter.value', value);
         if (starter.checked) {
-          thisBooking.starters.push(starter.value);
+          starters.push(value);
         } else {
-          thisBooking.starters.pop(starter.value);
+          starters.pop(value);
         }
       }
+      console.log(starters);
     });
 
-    
+
   }
 
   sendBooking(){
@@ -264,6 +271,8 @@ class Booking {
       phone: thisBooking.dom.phone.value,
       adress: thisBooking.dom.address.value,
     };
+
+    
 
     /*for(let starter of thisBooking.dom.starters) {
       if(starter.checked){

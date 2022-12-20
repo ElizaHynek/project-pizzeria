@@ -1,28 +1,62 @@
-.carousel-inner, .carousel-item {
-  height: 100vh;
-}
-  
-.carousel-item img {
-  height: 100%;
+// * Navigation
+
+.navigation img {
+  width: 100%;
+  height: 120px;
   object-fit: cover;
 }
 
-.card img {
+.opening-hour {
+  width: 100%;
+  height: 120px;
+  background-color: rgb(253, 127, 118);
+}
+
+.row {
+    --bs-gutter-x: 0.3rem;
+    --bs-gutter-y: 0;
+}
+.card-body {
+  color: white;
+}
+.card-body-dynamic {
+  p {
+    margin: auto;
+
+    &.active {
+      font-size: 0px;
+    }
+  }
+}
+
+.card-body-dynamic:hover {
+  cursor: pointer;  
+    p {
+      font-size: 12px;
+      margin: auto;
+      
+      &.transparent {
+        opacity: 0;
+      }
+    }
+  }
+ 
+.card-body h3 {   
+  font-family: "Oswald", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  }
+
+.card-body h4 {
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+  
+// * Gallery
+
+.gallery img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-}
-
-.carousel-caption {
-  right: auto;
-  bottom: auto;
-  padding-top: 0;
-  padding-bottom: 0;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.services i {
-  font-size: 20px;
 }

@@ -13,12 +13,14 @@
 }
 
 .row {
-    --bs-gutter-x: 0.3rem;
-    --bs-gutter-y: 0;
+  --bs-gutter-x: 0.3rem;
+  --bs-gutter-y: 0;
 }
+
 .card-body {
   color: white;
 }
+
 .card-body-dynamic {
   p {
     margin: auto;
@@ -30,22 +32,24 @@
 }
 
 .card-body-dynamic:hover {
-  cursor: pointer;  
-    p {
-      font-size: 12px;
-      margin: auto;
+
+  cursor: pointer;
+
+  p {
+    font-size: 12px;
+    margin: auto;
       
-      &.transparent {
-        opacity: 0;
-      }
+    &.transparent {
+      opacity: 0;
     }
   }
+}
  
 .card-body h3 {   
   font-family: "Oswald", sans-serif;
   font-size: 26px;
   font-weight: 500;
-  }
+}
 
 .card-body h4 {
   font-family: "Lato", sans-serif;

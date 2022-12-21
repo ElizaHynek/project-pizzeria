@@ -49,8 +49,7 @@ export const select = {
     submit: '.booking-form [type="submit"]',
     address: '[name="address"]',
     phone: '[name="phone"]',
-    starters: '[name=starter]',
-    chechboxes: '.booking-options',
+    starters: 'input[type="checkbox"]',
   },
   nav: {
     links: '.main-nav a',

@@ -66,125 +66,7 @@
   </header>
   <div id="pages">
     <section id="home">
-      <div class="navigation container py-5">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-1 position-relative">
-              <a href="#order"><img src="/images/main/pizza-1.jpg" alt="link site order"></a>
-              <div class="card-body position-absolute top-50 start-50 translate-middle no-spacing">
-                <div class="card-body-dynamic">
-                  <h3>ORDER ONLINE</h3>
-                  <p class="active">Delicious food delivered to your door</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-1">
-              <a href="#booking"><img src="images/main/pizza-4.jpg" alt="link site booking"></a>
-              <div class="card-body position-absolute top-50 start-50 translate-middle no-spacing">
-                <div class="card-body-dynamic">
-                  <h3>BOOK A TABLE</h3>
-                  <p class="active transparent">p</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-100">
-            <div class="card mb-1">
-              <div class="opening-hour"></div>
-              <div class="card-body position-absolute top-50 start-50 translate-middle">
-                <h3>OPENING HOURS:</h3>
-                <h4>MON-SUN,12PM-11PM</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="opinions container py-5">
-        <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
-          <div class="carousel-cell row">
-            <div class="col-4">
-              <img class="w-100" src="images/main/pizza-3.jpg" alt="">
-            </div>
-            <div class="col-7">
-              <h4>DELICIOUS DISHES!</h4>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse et officia dolorum id cum beatae, vitae at velit eaque iste.</p>
-            </div>
-          </div>
-          <div class="carousel-cell row">
-            <div class="col-4">
-              <img class="w-100" src="images/main/pizza-3.jpg" alt="">
-            </div>
-            <div class="col-7">
-              <h4>GREAT SERVICE!</h4>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse et officia dolorum id cum beatae, vitae at velit eaque iste.</p>
-            </div>
-          </div>
-          <div class="carousel-cell row">
-            <div class="col-4">
-              <img class="w-100" src="images/main/pizza-3.jpg" alt="">
-            </div>
-            <div class="col-7">
-              <h4>ONE OF THE MILLION!</h4>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse et officia dolorum id cum beatae, vitae at velit eaque iste.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="gallery container py-3">
-        <div class="row justify-content-around">
-          <div class="col-sm-6 col-lg-4">
-            <div class="card">
-              <div class="card-image">
-                  <img src="images/main/pizza-2.jpg" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="card">
-              <div class="card-image">
-                  <img src="images/main/pizza-5.jpg" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="card">
-              <div class="card-image">
-                  <img src="images/main/pizza-6.jpg" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="card">
-              <div class="card-image">
-                  <img src="images/main/pizza-7.jpg" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="card">
-              <div class="card-image">
-                  <img src="images/main/pizza-8.jpg" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="card">
-              <div class="card-image">
-                  <img src="images/main/pizza-9.jpg" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="media container pb-3">
-        <div class="row">
-          <div class="col-md-12">
-            <a href="#"><i class="fa-brands fa-instagram">Visit us on instagram</i></a>
-          </div>
-        </div>
-      </div>
+      <div id="home-wrapper" class="home-wrapper container"></div>
     </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
@@ -193,6 +75,154 @@
       <div class="booking-wrapper container"></div>
     </section>
   </div>
+
+  <script id="template-home-widget" type="text/x-handlebars-template">
+    <div class="home-header">
+        <div class="navigation container py-5">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-1 position-relative" id-data="order">
+                <a href="#order"><img src="/images/main/pizza-1.jpg" alt="link site order"></a>
+                <div class="card-body position-absolute top-50 start-50 translate-middle no-spacing">
+                  <div class="card-body-dynamic">
+                    <h3>ORDER ONLINE</h3>
+                    <p class="active">Delicious food delivered to your door</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-1" id-data="booking">
+                <a href="#booking"><img src="images/main/pizza-4.jpg" alt="link site booking"></a>
+                <div class="card-body position-absolute top-50 start-50 translate-middle no-spacing">
+                  <div class="card-body-dynamic">
+                    <h3>BOOK A TABLE</h3>
+                    <p class="active transparent">p</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-100">
+              <div class="card mb-1">
+                <div class="opening-hour"></div>
+                <div class="card-body position-absolute top-50 start-50 translate-middle">
+                  <h3>OPENING HOURS:</h3>
+                  <h4>MON-SUN,12PM-11PM</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="opinions container py-5">
+          <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+            <div class="carousel-cell row">
+              <div class="col-4">
+                <img class="w-100" src="images/main/pizza-3.jpg" alt="">
+              </div>
+              <div class="col-7">
+                <h4>DELICIOUS DISHES!</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse et officia dolorum id cum beatae, vitae at velit eaque iste.</p>
+              </div>
+            </div>
+            <div class="carousel-cell row">
+              <div class="col-4">
+                <img class="w-100" src="images/main/pizza-3.jpg" alt="">
+              </div>
+              <div class="col-7">
+                <h4>GREAT SERVICE!</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse et officia dolorum id cum beatae, vitae at velit eaque iste.</p>
+              </div>
+            </div>
+            <div class="carousel-cell row">
+              <div class="col-4">
+                <img class="w-100" src="images/main/pizza-3.jpg" alt="">
+              </div>
+              <div class="col-7">
+                <h4>ONE OF THE MILLION!</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse et officia dolorum id cum beatae, vitae at velit eaque iste.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery container py-3">
+          <div class="row justify-content-around">
+            <div class="col-sm-6 col-lg-4">
+              <div class="card">
+                <div class="card-image">
+                    <img src="images/main/pizza-2.jpg" alt="">
+                </div>
+                <div class="icons position-absolute top-50 start-50 translate-middle no-spacing">
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-share-nodes"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card">
+                <div class="card-image">
+                    <img src="images/main/pizza-5.jpg" alt="">
+                </div>
+                <div class="icons position-absolute top-50 start-50 translate-middle no-spacing">
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-share-nodes"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card">
+                <div class="card-image">
+                    <img src="images/main/pizza-6.jpg" alt="">
+                </div>
+                <div class="icons position-absolute top-50 start-50 translate-middle no-spacing">
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-share-nodes"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card">
+                <div class="card-image">
+                    <img src="images/main/pizza-7.jpg" alt="">
+                </div>
+                <div class="icons position-absolute top-50 start-50 translate-middle no-spacing">
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-share-nodes"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card">
+                <div class="card-image">
+                    <img src="images/main/pizza-8.jpg" alt="">
+                </div>
+                <div class="icons position-absolute top-50 start-50 translate-middle no-spacing">
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-share-nodes"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card">
+                <div class="card-image">
+                    <img src="images/main/pizza-9.jpg" alt="">
+                </div>
+                <div class="icons position-absolute top-50 start-50 translate-middle no-spacing">
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-share-nodes"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="media container pb-3">
+          <div class="row">
+            <div class="col-md-12">
+              <a href="#"><i class="fa-brands fa-instagram">Visit us on instagram</i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </script>
 
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>

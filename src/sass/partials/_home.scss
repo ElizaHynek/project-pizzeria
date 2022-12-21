@@ -64,3 +64,25 @@
   height: 200px;
   object-fit: cover;
 }
+
+.gallery .card {
+
+  .icons {
+    color:white;
+    font-size: 18px;
+  }
+}
+
+.gallery .card:hover {
+
+  cursor: pointer;
+    
+  .icons {
+    color:rgb(253, 127, 118);
+    font-size: 24px;
+  }
+
+  img {
+    opacity: 0.6;
+  }
+}
